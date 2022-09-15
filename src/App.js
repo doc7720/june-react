@@ -1,10 +1,16 @@
 import './App.css';
 
-function App() {
-  return (<div>
+import Users from "./components/users/Users";
+import SpaceX from "./components/spaceX/SpaceX";
 
-      </div>
-  );
+
+function App() {
+    return (
+        <div>
+            <Users/>
+            <SpaceX/>
+        </div>
+    );
 }
 
 export default App;

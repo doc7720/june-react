@@ -1,0 +1,8 @@
+.picture {
+    height: 100px;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+}
