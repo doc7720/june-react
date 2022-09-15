@@ -1,10 +1,18 @@
 import './App.css';
 
-function App() {
-  return (<div>
+import Simpsons from "./components/simpsons/Simpsons";
+import Characters from "./components/characters/Characters";
 
-      </div>
-  );
+
+function App() {
+
+    return (
+        <div className={'simpsons'}>
+            <Simpsons/>
+            <hr/>
+            <Characters/>
+        </div>
+    );
 }
 
 export default App;
