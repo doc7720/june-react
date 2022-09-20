@@ -1,8 +1,14 @@
 import './App.css';
 
-function App() {
-    return (<div>
+import Users from "./components/users/Users";
+import Comments from "./components/comments/Comments";
 
+function App() {
+    return (
+        <div>
+            <Users/>
+            <hr/>
+            <Comments/>
         </div>
     );
 }
