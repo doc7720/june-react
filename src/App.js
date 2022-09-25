@@ -1,8 +1,11 @@
 import './App.css';
 
-function App() {
-    return (<div>
+import Cars from "./components/Cars/Cars";
 
+function App() {
+    return (
+        <div>
+            <Cars/>
         </div>
     );
 }
