@@ -10,7 +10,13 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "eslint": "^8.23.1"
+    "eslint": "^8.23.1",
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/axios": "^0.14.0",
+    "@types/react-dom": "^18.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
