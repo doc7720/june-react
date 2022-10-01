@@ -1,8 +1,18 @@
 import './App.css';
 
-function App() {
-    return (<div>
+import CatForm from "./components/catForm/CatForm";
+import DogForm from "./components/dogForm/DogForm";
 
+function App() {
+
+    return (
+        <div className={'container'}>
+            <div className={'cat'}>
+                <CatForm/>
+            </div>
+            <div className={'dog'}>
+                <DogForm/>
+            </div>
         </div>
     );
 }
