@@ -1,28 +1,26 @@
-import {useForm} from "react-hook-form";
-
-import {createComment} from "../../services";
-
+import {useEffect, useState} from "react";
+import {commentService, userService} from "../../services";
+import Comment from "../comment/Comment";
+import CommentForm from "../commentForm/CommentForm";
 
 function Comments() {
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const [comments, setComments] = useState([]);
 
-    const submit = (obj) => {
-        createComment(obj).then(data => console.log(data));
-        reset();
-    }
+    useEffect(()=> {
+
+        commentService.getAll().then(({data}) => setComments(data));
+
+    },[]);
 
     return (
         <div>
-            <form onSubmit={handleSubmit(submit)}>
-                <input type="text" placeholder={'name'} {...register('name', {required: true})}/>
-                {errors.name && <span>This field is required</span>}
-                <input type="text" placeholder={'email'} {...register('email', {required: true})}/>
-                {errors.email && <span>This field is required</span>}
-                <input type="text" placeholder={'body'} {...register('body', {required: true})}/>
-                {errors.body && <span>This field is required</span>}
-                <button>Save</button>
-            </form>
+            <div>
+                <CommentForm setComments={setComments}/>
+            </div>
+            <div>
+                {comments.map(comment => <Comment key={comment.id} comment={comment}/>)}
+            </div>
         </div>
     );
 }

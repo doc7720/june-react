@@ -1,29 +1,28 @@
-import {useForm} from "react-hook-form";
+import {useEffect, useState} from "react";
 
-import {createUser} from "../../services";
-
+import {userService} from "../../services";
+import User from "../user/User";
+import UserForm from "../userForm/UserForm";
 
 function Users() {
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const [users, setUsers] = useState([]);
 
 
-    const submit = (obj) => {
-        createUser(obj).then(data => console.log(data));
-        reset();
-    }
+    useEffect(() => {
+
+        userService.getAll().then(({data}) => setUsers(data));
+
+    }, []);
 
     return (
         <div>
-            <form onSubmit={handleSubmit(submit)}>
-                <input type="text" placeholder={'name'} {...register('name', {required: true})}/>
-                {errors.name && <span>This field is required</span>}
-                <input type="text" placeholder={'username'} {...register('username', {required: true})}/>
-                {errors.username && <span>This field is required</span>}
-                <input type="text" placeholder={'email'} {...register('email', {required: true})}/>
-                {errors.email && <span>This field is required</span>}
-                <button>Save</button>
-            </form>
+            <div>
+                <UserForm setUsers={setUsers}/>
+            </div>
+            <div>
+                {users.map(user => <User key={user.id} user={user}/>)}
+            </div>
         </div>
     );
 }

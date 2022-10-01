@@ -7,5 +7,9 @@ const axiosInstance = axios.create({baseURL});
 
 const createComment = (comment) => axiosInstance.post(urls.comments, comment);
 
+const commentService = {
+    getAll: () => axiosInstance.get(urls.comments)
+}
 
-export {createComment}
+
+export {createComment, commentService}

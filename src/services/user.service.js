@@ -7,5 +7,9 @@ const axiosInstance = axios.create({baseURL});
 
 const createUser = (user) => axiosInstance.post(urls.users, user);
 
+const userService = {
+    getAll: () => axiosInstance.get(urls.users)
+}
 
-export {createUser}
+
+export {createUser, userService}
